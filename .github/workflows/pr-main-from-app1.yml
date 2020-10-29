@@ -3,10 +3,11 @@
 
 name: PR into Main for App 1
 
+# I don't think this is going to work as expected. I think it will trigger on either condition.
 on:
   pull_request:
-#    branches:
-#      - main
+    branches:
+      - main
     paths:
       - 'app1/**' # Hoping this detects any changes under the App1 folder, so when I PR to main this triggers.
 
