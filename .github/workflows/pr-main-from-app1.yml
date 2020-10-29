@@ -5,8 +5,10 @@ name: PR into Main for App 1
 
 on:
   pull_request:
-    branches:
-      - main
+#    branches:
+#      - main
+    paths:
+      - 'app1/**' # Hoping this detects any changes under the App1 folder, so when I PR to main this triggers.
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
