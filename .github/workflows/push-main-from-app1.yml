@@ -24,3 +24,9 @@ jobs:
       # Hello World - Push to Main
       - name: Hello World Push To Main
         run: echo "Hello World Push To Main"
+      
+      # Echo env variables
+      - name: echo env variables
+        run: |
+            echo "${{ env.GITHUB_EVENT_NAME }}"
+            echo "${{ env.GITHUB_EVENT_PATH }}"
