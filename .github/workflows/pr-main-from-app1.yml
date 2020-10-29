@@ -1,0 +1,25 @@
+# The goal of this workflow is to trigger on a PR into the main branch, but only for the App1 project
+# I'm not sure it is possible to specific an "on: pull_request" and specify both branch and path
+
+name: PR into Main for App 1
+
+on:
+  pull_request:
+    branches:
+      - main
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  say-hello:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      # Hello World
+      - name: Hello World
+        run: echo "Hello World"
