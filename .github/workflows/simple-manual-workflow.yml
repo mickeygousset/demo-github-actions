@@ -2,8 +2,7 @@
 
 name: Simple Manual Workflow
 
-# Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the main branch
+# Controls when the action will run. 
 on:
   workflow_dispatch:
     inputs:
@@ -27,7 +26,26 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
+      #Say Hello
       - name: Time To Say Hello
         run: |
           echo "Hello ${{ github.event.inputs.name}}!"
           echo "You live in ${{ github.event.inputs.home}}!"
+
+      # Create a file
+      - name: Create a file
+        run: | 
+          echo "Line One" >> myoutput.txt
+          echo "Line Two" >> myoutput.txt
+          
+      # Upload build artifact to the workflow
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v2.2.0
+        with:
+          # Artifact name
+          name: buildartifacts # optional, default is artifact
+          # A file, directory or wildcard pattern that describes what to upload
+          path: myoutput.txt
+          # The desired behavior if no files are found using the provided path.
+          if-no-files-found: warn # optional, default is warn
+          retention-days: 90 # optional
