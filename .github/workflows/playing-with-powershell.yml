@@ -26,4 +26,4 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Time To Say Hello
-        run: dir c:\modules\az_4.7.0
+        run: dir c:\modules\az_4.7.0\az
