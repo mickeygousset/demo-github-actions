@@ -38,4 +38,7 @@ jobs:
       #  run: Import-Module -Name c:\modules\az_4.7.0\az\4.7.0\Az.psm1
          
       - name: getinstalled module
-        run: Get-InstalledModule -Name Az -AllVersions
+        run: |
+          Set-ExecutionPolicy -ExecutionPolicy Unrestricted
+          import-module Az.Accounts
+          
