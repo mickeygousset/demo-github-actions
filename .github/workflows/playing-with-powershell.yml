@@ -37,5 +37,5 @@ jobs:
       #- name: import module
       #  run: Import-Module -Name c:\modules\az_4.7.0\az\4.7.0\Az.psm1
          
-      - name: import module
-        run: Import-Module Az.Accounts
+      - name: getinstalled module
+        run: Get-InstalledModule
