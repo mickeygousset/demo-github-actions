@@ -31,8 +31,8 @@ jobs:
       - name: PS Version
         run: $PSVersionTable.PSVersion
       
-      - name: get module
-        run: Get-Module -ListAvailable
+      #- name: get module
+      #  run: Get-Module -ListAvailable
     
       - name: import module
-        run: Import-Module -Name c:\modules\az_4.7.0\az\4.7.0\Az.psd1
+        run: Import-Module -Name c:\modules\az_4.7.0\az\4.7.0\Az.psm1
