@@ -28,6 +28,9 @@ jobs:
       - name: Time To Say Hello
         run: dir c:\modules\az_4.7.0\az\4.7.0
       
+      - name: PS Version
+        run: $PSVersionTable.PSVersion
+      
       - name: get module
         run: Get-Module -Name Az -ListAvailable
     
