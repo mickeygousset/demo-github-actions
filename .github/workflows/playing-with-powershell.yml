@@ -1,0 +1,29 @@
+name: Simple Manual Workflow
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the main branch
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Name of Person'
+        required: true
+        default: 'Jane Doe'
+      home:
+        description: 'Person Location'
+        required: false
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  say-hello:
+    # The type of runner that the job will run on
+    runs-on: windows-2019
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      - name: Time To Say Hello
+        run: dir c:\modules\az_4.7.0
