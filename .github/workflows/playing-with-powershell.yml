@@ -39,6 +39,5 @@ jobs:
          
       - name: getinstalled2 module
         run: |
-          Set-ExecutionPolicy -ExecutionPolicy Unrestricted
-          Update-Module -Name Az
+          $env:PSModulePath
           
