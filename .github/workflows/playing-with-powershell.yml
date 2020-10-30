@@ -40,5 +40,5 @@ jobs:
       - name: getinstalled2 module
         run: |
           Set-ExecutionPolicy -ExecutionPolicy Unrestricted
-          Import-Module -Name c:\modules\az_4.7.0\az\4.7.0\Az.psd1
+          Update-Module -Name Az
           
