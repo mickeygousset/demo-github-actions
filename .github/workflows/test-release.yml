@@ -21,7 +21,7 @@ jobs:
       - name: Get download link
         env:
           GITHUB_CONTEXT: ${{ github.event.release.assets[0].browser_download_url }}
-        run: curl -o bbc.html https://www.bbc.com
+        run: curl -o mydir.zip "$GITHUB_CONTEXT"
       
       - name: ls
         run: ls -la
