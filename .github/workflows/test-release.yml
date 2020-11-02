@@ -29,4 +29,4 @@ jobs:
          echo ${{ github.event.release.name }}
          echo ${{ github.event.release.tag_name }}
          echo ${{ github.event.release.draft }}
-         echo ${{ github.event.zipball_url }}
+         echo ${{ github.event.release.zipball_url }}
