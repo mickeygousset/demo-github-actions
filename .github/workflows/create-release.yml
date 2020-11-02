@@ -14,7 +14,7 @@ jobs:
       
     - name: dir
       run: |
-        dir myapp > mydir.txt
+        dir > mydir.txt
         
     - name: compress
       run: |
