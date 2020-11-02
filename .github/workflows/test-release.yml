@@ -30,4 +30,4 @@ jobs:
          echo ${{ github.event.release.tag_name }}
          echo ${{ github.event.release.draft }}
          echo "======================================================="
-         echo "$(( toJson(github.event) }}"
+         echo "$(( fromJson(github.event) }}"
