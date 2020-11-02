@@ -29,5 +29,8 @@ jobs:
          echo ${{ github.event.release.name }}
          echo ${{ github.event.release.tag_name }}
          echo ${{ github.event.release.draft }}
-         echo "======================================================="
-         echo "$(( fromJson(github.event) }}"
+         
+     - name: Dump GitHub Context
+       env:
+         GITHUB_CONTEXT: ${{ toJson(github) }}
+       run: echo "$GITHUB_CONTEXT"
