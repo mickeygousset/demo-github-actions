@@ -37,8 +37,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.RELEASE_PAT }}
       with:
-        tag_name: "v1.0.0"
-        release_name: "mydir-draft-v1.0.0"
+        tag_name: "v7.0.0"
+        release_name: "mydir-draft-v7.0.0"
         draft: true
         prerelease: false
         
