@@ -17,6 +17,15 @@ jobs:
     steps:
       - name: Get download link
         run: echo ${{ github.event.release.assets[0].browser_download_url }}
+        
+      - name: Get download link
+        env:
+          GITHUB_CONTEXT: ${{ github.event.release.assets[0].browser_download_url }}
+        run: curl -o bbc.html https://www.bbc.com
+      
+      - name: ls
+        run: ls -la
+      
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
