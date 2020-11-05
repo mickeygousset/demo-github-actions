@@ -13,7 +13,7 @@ on:
       
 jobs:
   one:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Get download link
         run: echo ${{ github.event.release.assets[0].browser_download_url }}
@@ -21,15 +21,14 @@ jobs:
       - name: Get download link
         env:
           GITHUB_CONTEXT: ${{ github.event.release.assets[0].browser_download_url }}
-        run: curl -o mydir.zip "$GITHUB_CONTEXT"
-        shell: powershell
+        run: wget "$GITHUB_CONTEXT"
       
       - name: ls
         run: ls -la
       
       - name: expand
         run: |
-          Expand-Archive -LiteralPath .\mydir.zip -DestinationPath .\pleasework
+          unzip ./mydir.zip
       
       - name: list
         run: ls -la
