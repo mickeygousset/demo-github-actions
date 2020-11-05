@@ -26,6 +26,12 @@ jobs:
       - name: ls
         run: ls -la
       
+      - name: unzip
+        run: unzip mydir.zip
+      
+      - name: list
+        run: ls -la
+      
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
