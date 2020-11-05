@@ -27,7 +27,7 @@ jobs:
         run: ls -la
       
       - name: unzip
-        run: unzip mydir.zip -d ./mickeytest
+        run: unzip -lv mydir.zip
       
       - name: list
         run: ls -la
