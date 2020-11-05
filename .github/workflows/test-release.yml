@@ -13,7 +13,7 @@ on:
       
 jobs:
   one:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - name: Get download link
         run: echo ${{ github.event.release.assets[0].browser_download_url }}
@@ -26,8 +26,9 @@ jobs:
       - name: ls
         run: ls -la
       
-      - name: unzip
-        run: unzip -lv mydir.zip
+      - name: expand
+        run: |
+          Expand-Archive -LiteralPath .\mydir.zip -DestinationPath .\pleasework
       
       - name: list
         run: ls -la
