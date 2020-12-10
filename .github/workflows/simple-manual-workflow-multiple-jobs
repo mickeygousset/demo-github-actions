@@ -1,0 +1,78 @@
+####################################################################################################
+# NAME: Simple Manual Workflow - multiple jobs
+#
+# DESCRIPTION:
+# I am a simple manual workflow. I:
+#   - Have two inputs (name, home)
+#   - I show how to output context variables
+#   - Use multiple jobs
+####################################################################################################
+
+name: Simple Manual Workflow - Multiple Jobs
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Name of Person'
+        required: true
+        default: 'Jane Doe'
+      home:
+        description: 'Person Location'
+        required: false
+
+jobs:
+  # Job name
+  job-dev:
+    
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      - name: Time To Say Hello
+        run: |
+          echo "Hello ${{ github.event.inputs.name}}!"
+          echo "You live in ${{ github.event.inputs.home}}!"
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+      
+      - name: Dump job context
+        env:
+          JOB_CONTEXT: ${{ toJson(job) }}
+        run: echo "$JOB_CONTEXT"
+      
+    # Job Name
+    job-test:
+      
+      runs-on: ubuntu-latest
+      
+      - name: Dump steps context
+        env:
+          STEPS_CONTEXT: ${{ toJson(steps) }}
+        run: echo "$STEPS_CONTEXT"
+      
+      - name: Dump runner context
+        env:
+          RUNNER_CONTEXT: ${{ toJson(runner) }}
+        run: echo "$RUNNER_CONTEXT"
+      
+    # Job Name
+    job-prod:
+    
+      runs-on ubuntu-latest
+      
+      - name: Dump strategy context
+        env:
+          STRATEGY_CONTEXT: ${{ toJson(strategy) }}
+        run: echo "$STRATEGY_CONTEXT"
+      
+      - name: Dump matrix context
+        env:
+          MATRIX_CONTEXT: ${{ toJson(matrix) }}
+        run: echo "$MATRIX_CONTEXT"
