@@ -1,9 +1,14 @@
-# TODO: Description
+####################################################################################################
+# NAME: Simple Manual Workflow
+#
+# DESCRIPTION:
+# I am a simple manual workflow. I:
+#   - Have two inputs (name, home)
+#   - I show how to output context variables
+####################################################################################################
 
 name: Simple Manual Workflow
 
-# Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the main branch
 on:
   workflow_dispatch:
     inputs:
@@ -15,10 +20,10 @@ on:
         description: 'Person Location'
         required: false
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
+  # Job name
   say-hello:
+    
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -36,22 +41,27 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
+      
       - name: Dump job context
         env:
           JOB_CONTEXT: ${{ toJson(job) }}
         run: echo "$JOB_CONTEXT"
+      
       - name: Dump steps context
         env:
           STEPS_CONTEXT: ${{ toJson(steps) }}
         run: echo "$STEPS_CONTEXT"
+      
       - name: Dump runner context
         env:
           RUNNER_CONTEXT: ${{ toJson(runner) }}
         run: echo "$RUNNER_CONTEXT"
+      
       - name: Dump strategy context
         env:
           STRATEGY_CONTEXT: ${{ toJson(strategy) }}
         run: echo "$STRATEGY_CONTEXT"
+      
       - name: Dump matrix context
         env:
           MATRIX_CONTEXT: ${{ toJson(matrix) }}
