@@ -8,7 +8,7 @@
 #   - Use multiple jobs
 ####################################################################################################
 
-name: Simple Manual Workflow - Multiple Jobs
+name: Multiple Jobs Simple Manual Workflow
 
 on:
   workflow_dispatch:
