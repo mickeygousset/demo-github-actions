@@ -68,6 +68,8 @@ jobs:
   job-prod:
     
     runs-on: ubuntu-latest
+    needs:
+      - job-test
       
     steps:
       
