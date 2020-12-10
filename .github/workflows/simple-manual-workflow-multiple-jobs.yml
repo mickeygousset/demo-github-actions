@@ -67,7 +67,7 @@ jobs:
     # Job Name
     job-prod:
     
-      runs-on ubuntu-latest
+      runs-on: ubuntu-latest
       
       steps:
       
