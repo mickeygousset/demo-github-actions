@@ -47,12 +47,12 @@ jobs:
           JOB_CONTEXT: ${{ toJson(job) }}
         run: echo "$JOB_CONTEXT"
       
-    # Job Name
-    job-test:
+  # Job Name
+  job-test:
       
-      runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
       
-      steps:
+    steps:
       
       - name: Dump steps context
         env:
@@ -64,12 +64,12 @@ jobs:
           RUNNER_CONTEXT: ${{ toJson(runner) }}
         run: echo "$RUNNER_CONTEXT"
       
-    # Job Name
-    job-prod:
+  # Job Name
+  job-prod:
     
-      runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
       
-      steps:
+    steps:
       
       - name: Dump strategy context
         env:
