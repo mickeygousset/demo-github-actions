@@ -34,7 +34,7 @@ jobs:
       
     runs-on: ubuntu-latest
     needs:
-      - job-qa
+      - job-dev
     environment: QA
       
     steps:
