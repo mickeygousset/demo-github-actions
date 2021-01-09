@@ -50,6 +50,10 @@ jobs:
         env:
           JOB_CONTEXT: ${{ toJson(job) }}
         run: echo "$JOB_CONTEXT"
+        
+      - name: Dump secret
+        run: |
+          echo ${{MY_SECRET}}
       
   # Job Name
   job-test:
