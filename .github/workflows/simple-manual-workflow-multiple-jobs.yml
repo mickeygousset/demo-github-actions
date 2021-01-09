@@ -6,6 +6,7 @@
 #   - Have two inputs (name, home)
 #   - I show how to output context variables
 #   - Use multiple jobs
+#   - Uses DEV environment and restrictions for DEV Job
 ####################################################################################################
 
 name: Simple Manual Workflow - Multiple Jobs
@@ -27,6 +28,9 @@ jobs:
     
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
+    
+    # this job should only run on DEV and should be restricted by environment
+    environment: DEV
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
