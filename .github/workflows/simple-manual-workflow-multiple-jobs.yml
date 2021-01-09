@@ -53,7 +53,7 @@ jobs:
         
       - name: Dump secret
         run: |
-          echo ${{MY_SECRET}}
+          echo ${{secrets.MY_SECRET}}
       
   # Job Name
   job-test:
